@@ -20,7 +20,17 @@ app.get("/", function(req,res){
   })
 })
 
+app.get("/about", function(req,res){
+  res.render(__dirname + "/views/about.ejs", {
+    aboutContent
+  })
+})
 
+app.get("/contact", function(req,res){
+  res.render(__dirname + "/views/contact.ejs", {
+    contactContent
+  })
+})
 
 
 
