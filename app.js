@@ -32,9 +32,13 @@ app.get("/contact", function(req,res){
   })
 })
 
+app.get("/compose", function(req,res){
+  res.render(__dirname + "/views/compose.ejs")
+})
 
-
-
+app.post("/compose", function(req,res){
+  console.log(req.body.texto);
+})
 
 
 
