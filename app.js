@@ -17,9 +17,10 @@ app.use(express.static("public"));
 
 app.get("/", function(req,res){
   res.render(__dirname + "/views/home.ejs", {
-    homeStartingContent
+  homeStartingContent,
+  posts : posts
   });
-  console.log(posts);
+
 })
 
 app.get("/about", function(req,res){
@@ -57,5 +58,5 @@ app.post("/compose", function(req,res){
 
 
 app.listen(2048, function() {
-  console.log("Server started on port 3000");
+  console.log("Server started on port 2048");
 });
