@@ -51,6 +51,19 @@ app.post("/compose", function(req,res){
   
 });
 
+app.get("/posts/:newsPost", function(req,res){
+  const requestedTitle = req.params.newsPost;
+
+  posts.forEach(function(post){
+    const storedTitle = post.title;
+  
+  if (storedTitle === requestedTitle){
+    console.log("Match Found!");
+  };
+  
+  });
+});
+
 
 
 
