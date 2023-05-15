@@ -2,7 +2,7 @@
 const express = require("express");
 const bodyParser = require("body-parser");
 const ejs = require("ejs");
-const lodash = require("lodash")
+const _ = require('lodash');
 const posts = [];
 
 
@@ -54,15 +54,18 @@ app.post("/compose", function(req,res){
 });
 
 app.get("/posts/:newsPost", function(req,res){
-  const requestedTitle = req.params.newsPost;
+  const requestedTitle = _.lowerCase(req.params.newsPost);
 
   posts.forEach(function(post){
-    const storedTitle = post.title;
-  
-  if (storedTitle === requestedTitle){
-    console.log("Match Found!");
-  };
- 
+    const storedTitle = _.lowerCase(post.title);
+    const storedContent = _.lowerCase(post.content);
+
+    if (storedTitle === requestedTitle) {
+      res.render("post", {
+        title: storedTitle,
+        content: storedContent
+      })
+    }
   
   });
 });
