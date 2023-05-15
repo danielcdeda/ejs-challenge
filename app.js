@@ -18,9 +18,11 @@ app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static("public"));
 
 app.get("/", function(req,res){
+  
   res.render(__dirname + "/views/home.ejs", {
   homeStartingContent,
   posts : posts
+  
   });
 
 })
@@ -50,6 +52,7 @@ app.post("/compose", function(req,res){
   posts.push(post);
 
   res.redirect("/");
+
   
 });
 
